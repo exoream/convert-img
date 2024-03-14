@@ -23,3 +23,24 @@ function convertToPDF() {
     };
     reader.readAsDataURL(file);
 }
+
+function loadImg(event) {
+    const file = event.target.files[0];
+    if (!file) {
+        alert('Please select an image file.');
+        return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const imageData = event.target.result;
+        displayImage(imageData);
+    };
+    reader.readAsDataURL(file);
+}
+
+function displayImage(imageData) {
+    const uploadedImage = document.getElementById('uploadedImage');
+    uploadedImage.src = imageData;
+}
+
