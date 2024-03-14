@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-    <script>
-        const { jsPDF } = jspdf;
-        const doc = new jsPDF();
-        const image = new Image();
-
-        image.src = "images/hutao.jpg";
-        doc.addImage(image, "jpg", 0, 0);
-        doc.save("convert.pdf");
-    </script>
+    <div class="container">
+    <label id="uploadLabel" for="imageInput">Choose Image</label>
+    <input type="file" id="imageInput" accept="images/*">
+    <button id="convertButton">Convert to PDF</button>
+</div>
+    <script src="convert.js"></script>
 </body>
 </html>
