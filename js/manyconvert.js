@@ -1,5 +1,14 @@
 document.getElementById('convertButton').addEventListener('click', convertToPDF);
 
+function generateRandomFileName() {
+    const currentDate = new Date();
+    const timestamp = currentDate.getTime(); // Waktu saat ini dalam milidetik
+    const randomNum = Math.floor(Math.random() * 1000); // Bilangan acak antara 0 dan 999
+    const randomString = Math.random().toString(36).substring(2, 8); // String acak dengan panjang 6 karakter
+
+    return `converted_${timestamp}_${randomString}_${randomNum}.pdf`;
+}
+
 function convertToPDF() {
     const images = document.querySelectorAll('#imageContainer img');
     if (images.length === 0) {
@@ -24,7 +33,8 @@ function convertToPDF() {
         yOffset += imgHeight;
     });
 
-    doc.save('converted.pdf');
+    const randomFileName = generateRandomFileName();
+    doc.save(randomFileName);
 
     const imageContainer = document.getElementById('imageContainer');
     imageContainer.innerHTML = '';
