@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/convert.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+    <label id="uploadLabel" for="imageInput">Choose Image</label>
+    <input type="file" id="imageInput" accept="images/*" onchange="loadImg(event)">
+    <div id="imageContainer">
+        <img id="uploadedImage" src="images/image-missing.jpg" alt="Uploaded Image">
+    </div>
+    <button id="convertButton">Convert to PDF</button>
+</div>
+    <script src="js/convert.js"></script>
+</body>
+</html>
