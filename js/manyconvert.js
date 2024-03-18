@@ -2,9 +2,9 @@ document.getElementById('convertButton').addEventListener('click', convertToPDF)
 
 function generateRandomFileName() {
     const currentDate = new Date();
-    const timestamp = currentDate.getTime(); // Waktu saat ini dalam milidetik
-    const randomNum = Math.floor(Math.random() * 1000); // Bilangan acak antara 0 dan 999
-    const randomString = Math.random().toString(36).substring(2, 8); // String acak dengan panjang 6 karakter
+    const timestamp = currentDate.getTime();
+    const randomNum = Math.floor(Math.random() * 1000);
+    const randomString = Math.random().toString(36).substring(2, 8);
 
     return `converted_${timestamp}_${randomString}_${randomNum}.pdf`;
 }
