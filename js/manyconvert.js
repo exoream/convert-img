@@ -1,9 +1,13 @@
 document.getElementById('convertButton').addEventListener('click', convertToPDF);
 
-function generateRandomFileName() {
-    const randomString = Math.random().toString(36).substring(2, 8);
-
-    return `converted_${randomString}.pdf`;
+function generateRandomString(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 function convertToPDF() {
@@ -30,8 +34,9 @@ function convertToPDF() {
         yOffset += imgHeight;
     });
 
-    const randomFileName = generateRandomFileName();
-    doc.save(randomFileName);
+    const randomString = generateRandomString(5);
+    const fileName = `converted_${randomString}.pdf`;
+    doc.save(fileName);
 
     const imageContainer = document.getElementById('imageContainer');
     imageContainer.innerHTML = '';
