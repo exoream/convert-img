@@ -41,6 +41,10 @@ function loadImg(event) {
     
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
+        if (!file.type.startsWith('image/')) {
+            alert('Please upload image files only.');
+            continue;
+        }
         const reader = new FileReader();
         reader.onload = function(event) {
             const imageData = event.target.result;
