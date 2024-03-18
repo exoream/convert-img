@@ -1,12 +1,9 @@
 document.getElementById('convertButton').addEventListener('click', convertToPDF);
 
 function generateRandomFileName() {
-    const currentDate = new Date();
-    const timestamp = currentDate.getTime();
-    const randomNum = Math.floor(Math.random() * 1000);
     const randomString = Math.random().toString(36).substring(2, 8);
 
-    return `converted_${timestamp}_${randomString}_${randomNum}.pdf`;
+    return `converted_${randomString}.pdf`;
 }
 
 function convertToPDF() {
